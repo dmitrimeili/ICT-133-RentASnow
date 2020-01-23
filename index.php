@@ -13,7 +13,7 @@ die($_SESSION["toto"]);
 
 $page = $_GET["action"];
 switch($page){
-    case "home";
+    default:
         home();
         break;
     case"displaySnows";
