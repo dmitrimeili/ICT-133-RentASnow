@@ -1,4 +1,9 @@
 <?php
+/*
+ * Author : Dmitri Meili
+ * Date : 22.01.2020
+ * Project : Rent a snow
+ */
 ob_start();
 $title="displaySnows";
 
@@ -24,12 +29,8 @@ $title="displaySnows";
                     <td>
                         <div class="col-2"><?= $snow['disponible'] ?></div>
                     </td>
-                    <td>
-                        <button><a href="index.php?action=detailsnow&snow=<?= $snow['id'] ?>">Détails</a></button>
-                    </td>
-                    <td>
-                        <button><a href="index.php?action=detailsnow">Louer</a></button>
-                    </td>
+
+
                 <tr>
             </table>
         </div>
