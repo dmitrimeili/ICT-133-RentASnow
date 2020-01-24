@@ -1,6 +1,5 @@
-
-[
-  {
+{
+  "0": {
     "username": "samuel",
     "password": "samuelmdp",
     "birthdate": "2000-12-18",
@@ -8,7 +7,7 @@
     "date-inscription": "2020-01-02",
     "employe": false
   },
-  {
+  "1": {
     "username": "benoit",
     "password": "benoitmdp",
     "birthdate": "2004-06-05",
@@ -16,7 +15,7 @@
     "date-inscription": "2020-01-02",
     "employe": true
   },
-  {
+  "2": {
     "username": "miguel",
     "password": "miguelmdp",
     "birthdate": "2002-11-15",
@@ -24,4 +23,4 @@
     "date-inscription": "2020-01-02",
     "employe": false
   }
-]
+}

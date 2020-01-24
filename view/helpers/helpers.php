@@ -6,8 +6,8 @@
  */
 
 function btLogin(){
-    if(isset($_SESSION["user"])){
-        return "<li><a href='index.php?action=disconnect'>Disconnect</a></li><li><a href='index.php?action=personalPage'>".$_SESSION["user"]."</a></li>";
+    if(isset($_SESSION["username"])){
+        return "<li><a href='index.php?action=disconnect'>Disconnect</a></li><li><a href='index.php?action=personalPage'>".$_SESSION["username"]."</a></li>";
     } else {
         return "<li><a href='index.php?action=Login'>Login</a></li><li><a href='index.php?action=inscription'>Inscription</a></li>";
     }

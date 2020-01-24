@@ -19,6 +19,7 @@ function displaySnows()
 {
 
     $snows = getSnows();
+
     require_once "view/displaySnows.php";
 }
 
@@ -29,26 +30,53 @@ function Login()
 }
 
 
-function tryLogin($username,$password)
+function tryLogin($username, $password)
 {
     $users = getUsers();
 
-    foreach ($users as $user){
-        if ($user["username"]==$username && $user["password"]==$password){
+    foreach ($users as $user) {
+        //if the username and the password are true then the user can connect on to his account
+        if ($user["username"] == $username && $user["password"] == $password) {
             $_SESSION["username"] = $username;
             $_SESSION["password"] = $password;
-            $_SESSION["birthdate"] =$user["birthdate"];
-            $_SESSION["wantnews"] =$user["wantnews"];
-            $_SESSION["date-inscription"] =$user["date-inscription"];
-            $_SESSION["employe"] =$user["employe"];
+            $_SESSION["birthdate"] = $user["birthdate"];
+            $_SESSION["wantnews"] = $user["wantnews"];
+            $_SESSION["date-inscription"] = $user["date-inscription"];
+            $_SESSION["employe"] = $user["employe"];
 
             home();
         }
     }
 }
-function disconnect(){
+
+//disconnect from the session
+function disconnect()
+{
     session_unset();
     require_once "view/disconnect.php";
+}
+
+function personalPage()
+{
+    require_once "view/personalPage.php";
+}
+
+function deleteUser()
+{
+    $users = getUsers();
+    foreach ($users as $x => $user) {
+        if($user["username"]==$_SESSION["username"]){
+            unset($users[$x]);
+
+            file_put_contents('model/dataStorage/Users.json', json_encode($users));
+
+        }
+    }
+    disconnect();
+}
+function inscription(){
+    require_once "view/inscription.php";
+    
 }
 
 ?>
