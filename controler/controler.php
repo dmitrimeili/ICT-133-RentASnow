@@ -76,7 +76,7 @@ function deleteUser()
 }
 function inscription(){
     require_once "view/inscription.php";
-    
+
 }
 
 ?>
