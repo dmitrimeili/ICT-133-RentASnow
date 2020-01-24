@@ -1,4 +1,9 @@
-﻿<?php
+﻿<!--
+  Author : Dmitri Meili
+  Date : 22.01.2020
+  Project : Rent a snow
+-->
+<?php
 require_once "helpers/helpers.php";
 ?>
 <!DOCTYPE HTML>

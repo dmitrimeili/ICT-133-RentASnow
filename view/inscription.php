@@ -3,10 +3,6 @@
  * Author : Dmitri Meili
  * Date : 22.01.2020
  * Project : Rent a snow
- *  "birthdate": "2004-06-05",
-    "wantnews": false,
-    "date-inscription": "2020-01-02",
-    "employe": true
  */
 ob_start();
 $title="inscription";
@@ -15,7 +11,7 @@ $title="inscription";
 <h1>Inscription</h1>
 <form action="index.php?action=inscription" method="POST">
 
-
+    <!-- zone d inscription -->
     <label><b>Nom d'utilisateur</b></label>
     <input type="text" placeholder="Entrer le nom d'utilisateur" name="username" required>
     <br>

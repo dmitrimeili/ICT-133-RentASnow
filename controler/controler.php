@@ -8,14 +8,14 @@ require_once 'model/model.php';
 
 // This file contains nothing but functions
 
-function home()
+function home()//fonction qui renvoie au menu
 {
     $news = getNews();
     require_once 'view/home.php';
     var_dump($_SESSION);
 }
 
-function displaySnows()
+function displaySnows()//fonction qui prend les valeurs d'un fichier json et renvoie au snows
 {
 
     $snows = getSnows();
@@ -23,14 +23,14 @@ function displaySnows()
     require_once "view/displaySnows.php";
 }
 
-function Login()
+function Login()//fonction qui renvoie au Login
 {
 
     require_once "view/Login.php";
 }
 
 
-function tryLogin($username, $password)
+function tryLogin($username, $password)//fonction pour se connecter
 {
     $users = getUsers();
 
@@ -56,12 +56,12 @@ function disconnect()
     require_once "view/disconnect.php";
 }
 
-function personalPage()
+function personalPage()// fonction qui affiche les information perso
 {
     require_once "view/personalPage.php";
 }
 
-function deleteUser()
+function deleteUser()// fonction pour effacer un utilisateur
 {
     $users = getUsers();
     foreach ($users as $x => $user) {
@@ -74,7 +74,7 @@ function deleteUser()
     }
     disconnect();
 }
-function inscription(){
+function inscription(){//fonction pour inscrire un nouvel utilisateur pas encore terminer
     require_once "view/inscription.php";
 
 }

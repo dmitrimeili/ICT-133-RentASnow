@@ -10,6 +10,7 @@ $snows = getSnows();
 ?>
 
 <?php foreach ($snows as $snow)
+    //affiche les snow disponible
     if ($snow["disponible"] == true ) {
         ?>
         <hr>
@@ -17,7 +18,7 @@ $snows = getSnows();
         <?= $snow["marque"] ?> <?= $snow["modele"] ?><br>
         <h2>Disponible</h2>
 
-    <?php } else { ?>
+    <?php } else { ?> //affiche les snow indisponible
         <hr>
         <img src="view/images/snow/<?= $snow["smallimage"] ?>"><br>
         <?= $snow["marque"] ?> <?= $snow["modele"] ?><br>
