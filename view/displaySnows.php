@@ -5,39 +5,24 @@
  * Project : Rent a snow
  */
 ob_start();
-$title="displaySnows";
-
+$title = "displaySnows";
+$snows = getSnows();
 ?>
-<div class="span12">
-    <h1>Les Snowboards</h1>
-    <?php foreach ($snows as $snow) { ?>
-        <div class="row mt-4">
-            <table border="1px">
-                <tr>
-                    <td>
-                        <div class="col-2"><?= $snow['model'] ?></div>
-                    </td>
-                    <td>
-                        <div class="col-2"><?= $snow['marque'] ?></div>
-                    </td>
-                    <td>
-                        <div class="col-8"><img src="view/images/<?= $snow['smallimage'] ?>"></div>
-                    </td>
-                    <td>
-                        <div class="col-2"><?= $snow['dateretour'] ?></div>
-                    </td>
-                    <td>
-                        <div class="col-2"><?= $snow['disponible'] ?></div>
-                    </td>
 
+<?php foreach ($snows as $snow)
+    if ($snow["disponible"] == true ) {
+        ?>
+        <hr>
+        <img src="view/images/snow/<?= $snow["smallimage"] ?>"><br>
+        <?= $snow["marque"] ?> <?= $snow["modele"] ?><br>
+        <h2>Disponible</h2>
 
-                <tr>
-            </table>
-        </div>
+    <?php } else { ?>
+        <hr>
+        <img src="view/images/snow/<?= $snow["smallimage"] ?>"><br>
+        <?= $snow["marque"] ?> <?= $snow["modele"] ?><br>
+        <h2>Indisponible</h2>
     <?php } ?>
-</div>
-
-
 
 
 <?php

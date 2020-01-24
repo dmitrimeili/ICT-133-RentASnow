@@ -15,9 +15,8 @@ die($_SESSION["toto"]);
 */
 
 
-
 $page = $_GET["action"];
-switch($page){
+switch ($page) {
 
     case"displaySnows";
         displaySnows();
@@ -28,7 +27,7 @@ switch($page){
     case"tryLogin";
         $username = $_POST["username"];
         $password = $_POST["password"];
-        tryLogin($username,$password);
+        tryLogin($username, $password);
         break;
     case"disconnect";
         disconnect();
@@ -36,12 +35,16 @@ switch($page){
     case"personalPage";
         PersonalPage();
         break;
+    case"deleteUser";
+        deleteUser();
+        break;
+        case"inscription";
+        inscription();
+        break;
     default:
         home();
         break;
 }
-
-
 
 
 ?>
