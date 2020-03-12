@@ -10,7 +10,7 @@ require_once 'model/model.php';
 
 function home()//fonction qui renvoie au menu
 {
-    $news = getNews();
+    $news = getAllNews();
     require_once 'view/home.php';
     var_dump($_SESSION);
 }
@@ -18,7 +18,7 @@ function home()//fonction qui renvoie au menu
 function displaySnows()//fonction qui prend les valeurs d'un fichier json et renvoie au snows
 {
 
-    $snows = getSnows();
+    $snows = getAllSnows();
 
     require_once "view/displaySnows.php";
 }
