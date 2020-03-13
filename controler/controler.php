@@ -18,8 +18,7 @@ function home()//fonction qui renvoie au menu
 function displaySnows()//fonction qui prend les valeurs d'un fichier json et renvoie au snows
 {
 
-    $snows = getAllSnows();
-
+    $snows = getAllSnowTypes();
     require_once "view/displaySnows.php";
 }
 
@@ -36,7 +35,7 @@ function tryLogin($username, $password)//fonction pour se connecter
 
     foreach ($users as $user) {
         //if the username and the password are true then the user can connect on to his account
-        if ($user["username"] == $username && $user["password"] == $password) {
+        if ($user["firstname"] == $username && $user["password"] == $password) {
             $_SESSION["username"] = $username;
             $_SESSION["password"] = $password;
             $_SESSION["birthdate"] = $user["birthdate"];

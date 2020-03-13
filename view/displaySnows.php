@@ -6,24 +6,26 @@
  */
 ob_start();
 $title = "displaySnows";
-$snows = getSnows();
+
+
 ?>
 
-<?php foreach ($snows as $snow)
+<?php foreach ($snows as $snow) {
     //affiche les snow disponible
-    if ($snow["disponible"] == true ) {
-        ?>
+    if ($snow["nbsnows"] >= 1) { ?>
         <hr>
-        <img src="view/images/snow/<?= $snow["smallimage"] ?>"><br>
-        <?= $snow["marque"] ?> <?= $snow["modele"] ?><br>
+        <img src="view/images/snow/<?= $snow["photo"] ?>"><br>
+        <?= $snow["brand"] ?> <?= $snow["model"] ?><br>
         <h2>Disponible</h2>
 
-    <?php } else { ?> //affiche les snow indisponible
+    <?php } else { //affiche les snow indisponible ?>
         <hr>
-        <img src="view/images/snow/<?= $snow["smallimage"] ?>"><br>
-        <?= $snow["marque"] ?> <?= $snow["modele"] ?><br>
+        <img src="view/images/snow/<?= $snow["photo"] ?>"><br>
+        <?= $snow["brand"] ?> <?= $snow["model"] ?><br>
         <h2>Indisponible</h2>
-    <?php } ?>
+    <?php }
+}
+?>
 
 
 <?php

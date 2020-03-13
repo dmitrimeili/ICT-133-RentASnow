@@ -1,12 +1,19 @@
 <?php
 
 
-
-function getSnows(){
-    return json_decode(file_get_contents('model/dataStorage/Snows.json'));
-}
 function getUsers(){
-    return json_decode(file_get_contents('model/dataStorage/Users.json'));
+    $dbh = callPDO();
+    try{
+        $query ='SELECT * FROM users';
+        $statement = $dbh->prepare($query);//prepare query
+        $statement->execute();//execute query
+        $queryResult = $statement->fetchAll(PDO::FETCH_ASSOC);//prepare result for client
+        $dbh = null;
+        return $queryResult;
+    }catch(PDOException $e){
+        print "Error!: " . $e->getMessage() . "<br/>";
+        return null;
+    }
 }
 
 function getAllNews(){
@@ -23,10 +30,10 @@ function getAllNews(){
         return null;
     }
 }
-function getAllSnows(){
+function getAllSnowTypes(){
     $dbh = callPDO();
     try{
-        $query ='SELECT * FROM snows';
+        $query ='SELECT snowtypes.model, count(snows.id) as nbsnows ,  FROM snowtypes INNER JOIN snows on snowtype_id = snowtypes.id where snows.available = 1 group by snowtypes.model';
         $statement = $dbh->prepare($query);//prepare query
         $statement->execute();//execute query
         $queryResult = $statement->fetchAll(PDO::FETCH_ASSOC);//prepare result for client
