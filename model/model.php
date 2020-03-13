@@ -33,7 +33,7 @@ function getAllNews(){
 function getAllSnowTypes(){
     $dbh = callPDO();
     try{
-        $query ='SELECT snowtypes.model, count(snows.id) as nbsnows ,  FROM snowtypes INNER JOIN snows on snowtype_id = snowtypes.id where snows.available = 1 group by snowtypes.model';
+        $query ='SELECT  snowtypes.model, count(snows.id) as nbsnowssnowtypes, snowtypes.photo FROM snowtypes INNER JOIN snows on snowtype_id = snowtypes.id  group by snowtypes.id ';
         $statement = $dbh->prepare($query);//prepare query
         $statement->execute();//execute query
         $queryResult = $statement->fetchAll(PDO::FETCH_ASSOC);//prepare result for client
