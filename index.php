@@ -13,6 +13,10 @@ switch ($page) {
     case"displaySnows";
         displaySnows();
         break;
+        case"displaySnowsDetails";
+        $snowid = $_GET['id'];
+        displaySnowsDetails($snowid);
+        break;
     case"Login";
         Login();
         break;

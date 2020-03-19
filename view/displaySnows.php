@@ -12,10 +12,13 @@ $title = "displaySnows";
 
 <?php foreach ($snows as $snow) {
     //affiche les snow disponible
-    ?><div>
+    ?>
+    <div>
         <hr>
         <img src="view/images/snow/<?= $snow["photo"] ?>"><br>
-        <?= $snow["brand"] ?> <?= $snow["model"] ?><br>
+        Marque : <?= $snow["brand"] ?><br>Modèle : <?= $snow['model'] ?><br>
+        <a href="index.php?action=displaySnowDetails&id=<?$snow['id'] ?>" class="btn btn-outline-success">Détails</a>
+
     </div>
 
     <?php

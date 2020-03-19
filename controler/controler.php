@@ -17,14 +17,16 @@ function home()//fonction qui renvoie au menu
 
 function displaySnows()//fonction qui prend les valeurs d'un fichier json et renvoie au snows
 {
-
     $snows = getAllSnowTypes();
     require_once "view/displaySnows.php";
+}
+function displaySnowsDetails($id){
+    $snow = getSnow($id);
+    require_once 'view/displaySnowsDetails.php';
 }
 
 function Login()//fonction qui renvoie au Login
 {
-
     require_once "view/Login.php";
 }
 
