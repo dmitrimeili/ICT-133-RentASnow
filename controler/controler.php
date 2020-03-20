@@ -20,7 +20,9 @@ function displaySnows()//fonction qui prend les valeurs d'un fichier json et ren
     $snows = getAllSnowTypes();
     require_once "view/displaySnows.php";
 }
-function displaySnowsDetails($id){
+
+function displaySnowsDetails($id)
+{
     $snow = getSnow($id);
     require_once 'view/displaySnowsDetails.php';
 }
@@ -31,9 +33,14 @@ function Login()//fonction qui renvoie au Login
 }
 
 
-function tryLogin($username, $password)//fonction pour se connecter
+function tryLogin($email, $password)//fonction pour se connecter
 {
-    $users = getUsers();
+    $user = getUserByEmail($email);
+    var_dump($user); die;
+    $_SESSION['user'] = $user;
+    if (password_verify($password. $user['password'])) {
+        unset($user['password']);// pour des raison de sécurité , on ne peut pas
+    }
 
     foreach ($users as $user) {
         //if the username and the password are true then the user can connect on to his account
@@ -66,7 +73,7 @@ function deleteUser()// fonction pour effacer un utilisateur
 {
     $users = getUsers();
     foreach ($users as $x => $user) {
-        if($user["username"]==$_SESSION["username"]){
+        if ($user["username"] == $_SESSION["username"]) {
             unset($users[$x]);
 
             file_put_contents('model/dataStorage/Users.json', json_encode($users));
@@ -75,7 +82,9 @@ function deleteUser()// fonction pour effacer un utilisateur
     }
     disconnect();
 }
-function inscription(){//fonction pour inscrire un nouvel utilisateur pas encore terminer
+
+function inscription()
+{//fonction pour inscrire un nouvel utilisateur pas encore terminer
     require_once "view/inscription.php";
 
 }

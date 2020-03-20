@@ -13,7 +13,7 @@ switch ($page) {
     case"displaySnows";
         displaySnows();
         break;
-        case"displaySnowsDetails";
+    case"displaySnowsDetails";
         $snowid = $_GET['id'];
         displaySnowsDetails($snowid);
         break;
@@ -21,9 +21,9 @@ switch ($page) {
         Login();
         break;
     case"tryLogin";
-        $username = $_POST["username"];
+        $email = $_POST['email'];
         $password = $_POST["password"];
-        tryLogin($username, $password);
+        tryLogin($email, $password);
         break;
     case"disconnect";
         disconnect();
@@ -34,7 +34,7 @@ switch ($page) {
     case"deleteUser";
         deleteUser();
         break;
-        case"inscription";
+    case"inscription";
         inscription();
         break;
     default:

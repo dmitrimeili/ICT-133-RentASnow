@@ -47,7 +47,7 @@ function getAllSnowTypes(){
 function getSnow($id){
     $dbh = callPDO();
     try{
-        $query ='SELECT  * FROM snowtypes ';
+        $query ='SELECT  * FROM snowtypes wher id=';
         $statement = $dbh->prepare($query);//prepare query
         $statement->execute();//execute query
         $queryResult = $statement->fetchAll(PDO::FETCH_ASSOC);//prepare result for client
@@ -59,6 +59,20 @@ function getSnow($id){
     }
 }
 
+function getUserByEmail($email){
+$dbh = callPDO();
+    try{
+        $query ='SELECT  * FROM users where email=:email';
+        $statement = $dbh->prepare($query);//prepare query
+        $statement->execute(['email'=> $email]);//execute query
+        $queryResult = $statement->fetchAll(PDO::FETCH_ASSOC);//prepare result for client
+        $dbh = null;
+        return $queryResult;
+    }catch(PDOException $e){
+        print "Error!: " . $e->getMessage() . "<br/>";
+        return null;
+    }
+}
 function callPDO()
 {
     require ".const.php";
