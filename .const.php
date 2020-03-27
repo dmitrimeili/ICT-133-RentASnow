@@ -8,5 +8,7 @@ $user="ICT-151";
 $pass='Pa$$w0rd';
 $dbhost='localhost';
 $dbname='snows';
+
+$debug = false;
 ?>
 

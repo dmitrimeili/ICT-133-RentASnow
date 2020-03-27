@@ -37,6 +37,9 @@ switch ($page) {
     case"inscription";
         inscription();
         break;
+    case"tryInscription";
+        tryInscription();
+        break;
     default:
         home();
         break;

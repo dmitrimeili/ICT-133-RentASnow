@@ -25,6 +25,7 @@ require_once "helpers/helpers.php";
 
     <link href="assets/carousel/style.css" rel="stylesheet" type="text/css"/>
     <link href="assets/camera/css/camera.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet"href="../css/styles.css">
 
     <link href="http://fonts.googleapis.com/css?family=Syncopate" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Abel" rel="stylesheet" type="text/css">

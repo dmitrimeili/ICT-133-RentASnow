@@ -88,5 +88,8 @@ function inscription()
     require_once "view/inscription.php";
 
 }
+function tryInscription(){
+
+}
 
 ?>

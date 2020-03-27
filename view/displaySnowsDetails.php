@@ -7,8 +7,9 @@
 ob_start();
 $title = "displaySnowsDetails";
 ?>
+
 <img src="view/images/snow/<?= $snow["photo"] ?>"><br>
-Marque : <?= $snow["brand"] ?><br>Modèle : <?= $snow['model'] ?><br>
+<span class="font-weight-bold ">Marque : <?= $snow["brand"] ?><br>Modèle : <?= $snow['model'] ?></span><br>
 <?php
 $content = ob_get_clean();
 require_once "view/gabarit.php";
