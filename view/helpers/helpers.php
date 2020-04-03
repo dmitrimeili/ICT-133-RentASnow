@@ -19,9 +19,30 @@ function btLogin()
 function getFlashMessage()
 {
     if (isset($_SESSION['flashmessage'])) {
-        $message =$_SESSION['flashmessage'];
+        $message = $_SESSION['flashmessage'];
         unset($_SESSION['flashmessage']);
-        return "<div class='alert alert-info'>".$message."</div>";
+        return "<div class='alert alert-info'>" . $message . "</div>";
+
+    }
+}
+
+function getTextState($state)
+{
+    switch($state){
+        case 1:
+            return 'Neuf';
+            break;
+        case 2:
+            return 'Usagé';
+            break;
+        case 3:
+            return 'Vieux';
+            break;
+        case 4:
+            return 'Mort';
+            break;
+        default:
+            return '???';
 
     }
 }

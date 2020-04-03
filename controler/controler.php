@@ -23,7 +23,9 @@ function displaySnows()//fonction qui prend les valeurs d'un fichier json et ren
 
 function displaySnowDetails($id)
 {
-    $snow = getSnow($id);
+    $snowtype = getSnowType($id);
+    $snows=getSnowsOfType($id);
+
     require_once 'view/displaySnowsDetails.php';
 }
 

@@ -44,13 +44,33 @@ function getAllSnowTypes(){
         return null;
     }
 }
-function getSnow($id){
+function getSnowType($id){
     $dbh = callPDO();
     try{
-        $query ='SELECT  * FROM snowtypes where id=id';
+        $query ='SELECT  * FROM snowtypes where id=:id';
         $statement = $dbh->prepare($query);//prepare query
         $statement->execute(['id'=>$id]);//execute query
         $queryResult = $statement->fetch(PDO::FETCH_ASSOC);//prepare result for client
+        $dbh = null;
+        return $queryResult;
+    }catch(PDOException $e){
+        print "Error!: " . $e->getMessage() . "<br/>";
+        return null;
+    }
+}
+
+/**
+ * Retourne la liste des snows d'un type donné
+ * @param $id
+ * @return mixed|null
+ */
+function getSnowsOfType($id){
+    $dbh = callPDO();
+    try{
+        $query ='SELECT  * FROM snows where snowtype_id=:id';
+        $statement = $dbh->prepare($query);//prepare query
+        $statement->execute(['id'=>$id]);//execute query
+        $queryResult = $statement->fetchAll(PDO::FETCH_ASSOC);//prepare result for client
         $dbh = null;
         return $queryResult;
     }catch(PDOException $e){

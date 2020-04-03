@@ -5,11 +5,36 @@
  * Project : Rent a snow
  */
 ob_start();
+
 $title = "displaySnowDetails";
-?>
-<?= var_dump($snow)?>
-<img src="view/images/snow/<?= $snow["photo"] ?>"><br>
-<span class="font-weight-bold ">Marque : <?= $snow["brand"] ?><br>Modèle : <?= $snow['model'] ?></span><br>
+?><br>
+<div class="text-center"><img src="view/images/snow/<?= $snowtype["photo"] ?>" class="detailedimg"><br>
+    <span class="font-weight-bold ">Marque : <?= $snowtype["brand"] ?><br>Modèle : <?= $snowtype['model'] ?></span><br>
+</div>
+<div>
+    <?php if (count($snows) > 0) { ?>
+        <h4>Nous avons <?= count($snows) ?> snows de ce type</h4>
+        <table class="table ">
+            <tr>
+                <th>Code</th>
+                <th>Taille</th>
+                <th>État</th>
+                <th>Disponible</th>
+            </tr>
+            <?php foreach ($snows as $snow) { ?>
+                <tr>
+                    <td><?= $snow['code'] ?></td>
+                    <td><?= $snow['length'] ?></td>
+                    <td><?= getTextState($snows['state']) ?></td>
+                    <td><?= $snow['available'] ?></td>
+                </tr>
+            <?php } ?>
+        </table>
+    <?php } else { ?>
+        <h4>Nous avons malheuresement aucun snow de ce type</h4>
+    <?php } ?>
+</div>
+
 <?php
 $content = ob_get_clean();
 require_once "view/gabarit.php";
