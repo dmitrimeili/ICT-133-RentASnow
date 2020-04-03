@@ -18,14 +18,15 @@ require_once "helpers/helpers.php";
     <link href="node_modules/bootstrap/dist/css/bootstrap-reboot.css" rel="stylesheet">
 
     <!-- Icons -->
-    <link href="assets/icons/general/stylesheets/general_foundicons.css" media="screen" rel="stylesheet" type="text/css"/>
+    <link href="assets/icons/general/stylesheets/general_foundicons.css" media="screen" rel="stylesheet"
+          type="text/css"/>
     <link href="assets/icons/social/stylesheets/social_foundicons.css" media="screen" rel="stylesheet" type="text/css"/>
 
     <link rel="stylesheet" href="assets/fontawesome/css/font-awesome.min.css">
 
     <link href="assets/carousel/style.css" rel="stylesheet" type="text/css"/>
     <link href="assets/camera/css/camera.css" rel="stylesheet" type="text/css"/>
-    <link rel="stylesheet"href="../css/styles.css">
+    <link rel="stylesheet" href="../css/styles.css">
 
     <link href="http://fonts.googleapis.com/css?family=Syncopate" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Abel" rel="stylesheet" type="text/css">
@@ -44,7 +45,8 @@ require_once "helpers/helpers.php";
 
 <div id="divBoxed" class="container">
 
-    <div class="transparent-bg" style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;z-index: -1;zoom: 1;"></div>
+    <div class="transparent-bg"
+         style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;z-index: -1;zoom: 1;"></div>
 
     <div class="divPanel notop nobottom">
         <div class="row-fluid">
@@ -70,6 +72,7 @@ require_once "helpers/helpers.php";
             <div class="divPanel notop page-content">
                 <div class="row-fluid">
                     <div class="span12" id="divMain">
+                      <?= getFlashMessage();?>
                         <?= $content; ?>
                     </div>
                 </div>
@@ -84,7 +87,8 @@ require_once "helpers/helpers.php";
                 <div class="row">
                     <div class="col-4" id="footerArea1">
                         <h3>Notre magasin</h3>
-                        <p>Nous sommes une équipe de jeunes snowboardeurs qui souhaitons faire découvrir cette discipline à tous les publics.</p>
+                        <p>Nous sommes une équipe de jeunes snowboardeurs qui souhaitons faire découvrir cette
+                            discipline à tous les publics.</p>
                         <p>
                             <a href="#" title="Terms of Use">Terms of Use</a><br/>
                             <a href="#" title="Privacy Policy">Privacy Policy</a><br/>
@@ -95,8 +99,10 @@ require_once "helpers/helpers.php";
 
                     <div class="col-4" id="footerArea3">
                         <h3>Horaires de location</h3>
-                        <p>Les locations peuvent s'effectuer tous les jours de la semaine en haute saison de 07h à 19h et en basse saison, les jours ouvrables de 8h à 18h.<br>
-                            Vous pouvez aussi passer par le site. Pour le retrait et le dépot, vous devrez passer au guichet automatique à l'arrière du magasin</p>
+                        <p>Les locations peuvent s'effectuer tous les jours de la semaine en haute saison de 07h à 19h
+                            et en basse saison, les jours ouvrables de 8h à 18h.<br>
+                            Vous pouvez aussi passer par le site. Pour le retrait et le dépot, vous devrez passer au
+                            guichet automatique à l'arrière du magasin</p>
                     </div>
 
                     <div class="col-4" id="footerArea4">

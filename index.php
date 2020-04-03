@@ -13,9 +13,9 @@ switch ($page) {
     case"displaySnows";
         displaySnows();
         break;
-    case"displaySnowsDetails";
+    case"displaySnowDetails";
         $snowid = $_GET['id'];
-        displaySnowsDetails($snowid);
+        displaySnowDetails($snowid);
         break;
     case"Login";
         Login();

@@ -17,7 +17,7 @@ $title = "displaySnows";
         <hr>
         <img src="view/images/snow/<?= $snow["photo"] ?>" class="listimage""><br>
         <span class="font-weight-bold ">Marque : <?= $snow["brand"] ?><br>Modèle : <?= $snow['model'] ?></span><br>
-        <a href="index.php?action=displaySnowsDetails&id=<?=$snow['id'] ?>" class="btn btn-outline-success">Détails</a>
+        <a href="index.php?action=displaySnowDetails&id=<?=$snow['id'] ?>" class="btn btn-outline-success">Détails</a>
 
     </div>
 

@@ -21,7 +21,7 @@ function displaySnows()//fonction qui prend les valeurs d'un fichier json et ren
     require_once "view/displaySnows.php";
 }
 
-function displaySnowsDetails($id)
+function displaySnowDetails($id)
 {
     $snow = getSnow($id);
     require_once 'view/displaySnowsDetails.php';
@@ -36,24 +36,16 @@ function Login()//fonction qui renvoie au Login
 function tryLogin($email, $password)//fonction pour se connecter
 {
     $user = getUserByEmail($email);
-    var_dump($user); die;
     $_SESSION['user'] = $user;
-    if (password_verify($password. $user['password'])) {
-        unset($user['password']);// pour des raison de sécurité , on ne peut pas
-    }
-
-    foreach ($users as $user) {
-        //if the username and the password are true then the user can connect on to his account
-        if ($user["firstname"] == $username && $user["password"] == $password) {
-            $_SESSION["username"] = $username;
-            $_SESSION["password"] = $password;
-            $_SESSION["birthdate"] = $user["birthdate"];
-            $_SESSION["wantnews"] = $user["wantnews"];
-            $_SESSION["date-inscription"] = $user["date-inscription"];
-            $_SESSION["employe"] = $user["employe"];
-
-            home();
-        }
+    if (password_verify($password, $user['password'])) {
+        unset($user['password']);//pour des raison de sécuriter on ne mets pas le mdp même hashé dans la session
+        $_SESSION['user'] = $user;
+        $_SESSION['flashmessage'] ='Bienvenue '.$user['firstname'];
+        require_once "view/home.php";
+    } else {
+        unset ($_SESSION['user']);
+        $_SESSION['flashmessage'] ='Réessayer...';
+        require_once "view/Login.php";
     }
 }
 
@@ -61,7 +53,7 @@ function tryLogin($email, $password)//fonction pour se connecter
 function disconnect()
 {
     session_unset();
-    require_once "view/disconnect.php";
+    require_once "view/home.php";
 }
 
 function personalPage()// fonction qui affiche les information perso
@@ -88,7 +80,9 @@ function inscription()
     require_once "view/inscription.php";
 
 }
-function tryInscription(){
+
+function tryInscription()
+{
 
 }
 

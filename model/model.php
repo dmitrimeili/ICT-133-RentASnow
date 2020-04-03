@@ -33,7 +33,7 @@ function getAllNews(){
 function getAllSnowTypes(){
     $dbh = callPDO();
     try{
-        $query ='SELECT  snowtypes.model,snowtypes.brand, count(snows.id) as nbsnowssnowtypes, snowtypes.photo FROM snowtypes INNER JOIN snows on snowtype_id = snowtypes.id  group by snowtypes.id ORDER by snowtypes.brand,snowtypes.model';
+        $query ='select * from snowtypes order by brand,model desc';
         $statement = $dbh->prepare($query);//prepare query
         $statement->execute();//execute query
         $queryResult = $statement->fetchAll(PDO::FETCH_ASSOC);//prepare result for client
@@ -47,10 +47,10 @@ function getAllSnowTypes(){
 function getSnow($id){
     $dbh = callPDO();
     try{
-        $query ='SELECT  * FROM snowtypes wher id=';
+        $query ='SELECT  * FROM snowtypes where id=id';
         $statement = $dbh->prepare($query);//prepare query
-        $statement->execute();//execute query
-        $queryResult = $statement->fetchAll(PDO::FETCH_ASSOC);//prepare result for client
+        $statement->execute(['id'=>$id]);//execute query
+        $queryResult = $statement->fetch(PDO::FETCH_ASSOC);//prepare result for client
         $dbh = null;
         return $queryResult;
     }catch(PDOException $e){
@@ -65,7 +65,7 @@ $dbh = callPDO();
         $query ='SELECT  * FROM users where email=:email';
         $statement = $dbh->prepare($query);//prepare query
         $statement->execute(['email'=> $email]);//execute query
-        $queryResult = $statement->fetchAll(PDO::FETCH_ASSOC);//prepare result for client
+        $queryResult = $statement->fetch(PDO::FETCH_ASSOC);//prepare result for client
         $dbh = null;
         return $queryResult;
     }catch(PDOException $e){

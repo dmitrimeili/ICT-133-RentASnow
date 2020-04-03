@@ -5,9 +5,9 @@
  * Project : Rent a snow
  */
 ob_start();
-$title = "displaySnowsDetails";
+$title = "displaySnowDetails";
 ?>
-
+<?= var_dump($snow)?>
 <img src="view/images/snow/<?= $snow["photo"] ?>"><br>
 <span class="font-weight-bold ">Marque : <?= $snow["brand"] ?><br>Modèle : <?= $snow['model'] ?></span><br>
 <?php
