@@ -28,7 +28,12 @@ function displaySnowDetails($id)
 
     require_once 'view/displaySnowsDetails.php';
 }
+function displayRealSnowDetails($id)
+{
+    $snow = getRealSnow($id);
 
+    require_once 'view/displayRealSnowDetails.php';
+}
 function Login()//fonction qui renvoie au Login
 {
     require_once "view/Login.php";

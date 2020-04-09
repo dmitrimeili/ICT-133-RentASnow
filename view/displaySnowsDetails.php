@@ -7,6 +7,7 @@
 ob_start();
 
 $title = "displaySnowDetails";
+require_once "view/helpers/helpers.php";
 ?><br>
 <div class="text-center"><img src="view/images/snow/<?= $snowtype["photo"] ?>" class="detailedimg"><br>
     <span class="font-weight-bold ">Marque : <?= $snowtype["brand"] ?><br>Modèle : <?= $snowtype['model'] ?></span><br>
@@ -22,11 +23,11 @@ $title = "displaySnowDetails";
                 <th>Disponible</th>
             </tr>
             <?php foreach ($snows as $snow) { ?>
-                <tr>
+                <tr class="clickable" data-href="?action=displayRealSnowDetails&id=<?=$snow['id']?>">
                     <td><?= $snow['code'] ?></td>
                     <td><?= $snow['length'] ?></td>
-                    <td><?= getTextState($snows['state']) ?></td>
-                    <td><?= $snow['available'] ?></td>
+                    <td><?= getTextState($snow['state']) ?></td>
+                    <td><?= $snow['available'] ?'Oui':'Non'?></td>
                 </tr>
             <?php } ?>
         </table>

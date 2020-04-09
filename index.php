@@ -17,6 +17,10 @@ switch ($page) {
         $snowid = $_GET['id'];
         displaySnowDetails($snowid);
         break;
+    case"displayRealSnowDetails";
+        $snowid = $_GET['id'];
+        displayRealSnowDetails($snowid);
+        break;
     case"Login";
         Login();
         break;
